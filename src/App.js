@@ -1,11 +1,15 @@
 import React from "react";
 import "./App.scss";
 
+import Header from "./components/Header/Header";
+import Balance from "./components/Balance/Balance";
+
 const App = () => {
   return (
     <div className="container">
       <div className="app-wrapper">
-        <h1>Hello World</h1>
+        <Header />
+        <Balance />
       </div>
     </div>
   );
