@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const AddTransaction = () => {
   const [income, setIncome] = useState({
     incomeText: "",
     incomeAmount: 0,
   });
+
+  const { incomeText, incomeAmount } = income;
 
   const onChangeIncome = (e) => {
     //this will access the exact property value
@@ -13,9 +16,21 @@ const AddTransaction = () => {
     console.log(income);
   };
 
+  const onSubmitIncome = (e) => {
+    e.preventDefault();
+
+    const newIncomeTransaction = {
+      id: uuidv4(),
+      incomeText,
+      incomeAmount: incomeAmount * 1,
+    };
+
+    console.log(newIncomeTransaction);
+  };
+
   return (
     <div className="form-wrapper">
-      <form>
+      <form onSubmit={onSubmitIncome}>
         <div className="input-group income">
           <input
             type="text"
